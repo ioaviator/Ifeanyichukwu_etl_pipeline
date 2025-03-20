@@ -10,7 +10,7 @@ headers = {
 
 BASE_URL = f'https://{rapid_host}/list/'
 
-def imdb_scrape():
+def imdb_extract():
   for list_id in range(1,11):
     try:
       url = f"{BASE_URL}{list_id}"

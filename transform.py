@@ -17,7 +17,7 @@ def load_json_with_polars(file_path):
   # Extract the 'result' list and convert it into a Polars DataFrame
   return pl.DataFrame(data.get("result", []))
 
-def transform():
+def transform_data():
   # Use list comprehension to load each file into a DataFrame
   movies_list_df = [load_json_with_polars(file) for file in json_files]
 
@@ -42,10 +42,11 @@ def transform():
     pl.col('gross').fill_null(0)
 ])
   # tt = combined_json.to_pandas()
+
+  # print(tt[['meta_score','gross', 'imdb_rating']])
   
   # Load dataframe to parquet file
   combined_json.write_parquet(f'{data_folder}/processed_data.parquet')
+  print(f'Json files transformed and loaded as parquet to {data_folder} folder')
   
-
-
-transform()
+  return None

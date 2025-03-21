@@ -1,11 +1,11 @@
 
 import polars as pl
 
-from .config import data_folder
+from .config import data_dir
 
 
 def load_data(db_engine):
-  imdb_movies = pl.read_parquet(f'{data_folder}/processed_data.parquet')
+  imdb_movies = pl.read_parquet(f'{data_dir}/processed_data.parquet')
 
   imdb_movies = imdb_movies.with_columns(
     pl.col("imdb_rating").cast(pl.Float32).alias("imdb_rating"),

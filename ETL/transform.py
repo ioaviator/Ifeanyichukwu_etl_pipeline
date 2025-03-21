@@ -4,10 +4,10 @@ import os
 
 import polars as pl
 
-from .config import data_folder
+from .config import data_dir
 
-# Get all JSON files in the folder
-json_files = glob.glob(os.path.join(data_folder, '*.json'))
+# Get all JSON files in the data folder
+json_files = glob.glob(os.path.join(data_dir, '*.json'))
 
 
 def load_json_with_polars(file_path):
@@ -20,7 +20,7 @@ def load_json_with_polars(file_path):
 def transform_data():
 
   if len(json_files) != 10:
-    print('Error fetching all records from API')
+    print('Error fetching all records from API.Incomplete records returned')
     return False
   
     # Use list comprehension to load each file into a DataFrame
@@ -48,7 +48,7 @@ def transform_data():
   ])
   
   # Load dataframe to parquet file
-  combined_json.write_parquet(f'{data_folder}/processed_data.parquet')
-  print(f'Json files transformed and loaded as parquet to {data_folder} folder')
+  combined_json.write_parquet(f'{data_dir}/processed_data.parquet')
+  print(f'Json files transformed and loaded as parquet to {data_dir} folder')
   
   return True

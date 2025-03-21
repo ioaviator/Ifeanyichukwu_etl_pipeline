@@ -10,10 +10,12 @@ def main():
   try:
     # api_connect = imdb_extract()
     transform = transform_data()
-    db = get_db()
-    Base.metadata.create_all(db)
-    print('Database and tables successfully initialized')
-    load = load_data(db_engine)
+    # proceed to next step if all json records were extracted from api
+    if transform:
+      db = get_db()
+      Base.metadata.create_all(db)
+      print('Database and tables successfully initialized')
+      load = load_data(db_engine)
   except:
     pass
 

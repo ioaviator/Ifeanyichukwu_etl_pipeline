@@ -4,8 +4,10 @@ import os
 
 import polars as pl
 
+from .config import data_folder
+
 # Build the path to the 'data' folder relative to this file
-data_folder = os.path.join(os.path.dirname(__file__), 'data')
+# data_folder = os.path.join(os.path.dirname(__file__), 'data')
 
 # Get all JSON files in the folder
 json_files = glob.glob(os.path.join(data_folder, '*.json'))
@@ -28,7 +30,7 @@ def transform_data():
 
   #Drop unwanted columns
   combined_json = combined_json.drop(['poster_link','no_of_votes'])
-  
+    
   # Verify changes
   # print(combined_json.columns)
 

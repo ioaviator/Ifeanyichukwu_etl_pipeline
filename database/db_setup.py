@@ -10,6 +10,7 @@ def get_db():
     engine = create_engine(url, echo=False)
     return engine
 
+
 db_engine = get_db()
 
 Session = sessionmaker(bind=db_engine)

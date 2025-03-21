@@ -12,5 +12,5 @@ data_dir.mkdir(exist_ok=True)
 
 load_dotenv()
 
-rapid_key=os.getenv('RAPID_KEY')
-rapid_host=os.getenv('RAPID_HOST')
+rapid_key = os.getenv("RAPID_KEY")
+rapid_host = os.getenv("RAPID_HOST")

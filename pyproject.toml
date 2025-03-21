@@ -1,0 +1,29 @@
+[project]
+name = "ifeanyichukwu-etl-pipeline"
+version = "0.1.0"
+description = "API Based ETL Pipeline with Polars, PostgreSQL, IMDB via RapidAPI"
+authors = [
+    {name = "ioaviator",email = "kingsolomonifeanyi@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "polars (>=1.25.2,<2.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "sqlalchemy (>=2.0.39,<3.0.0)",
+    "pyarrow (>=19.0.1,<20.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "sqlalchemy-utils (>=0.41.2,<0.42.0)",
+    "psycopg2 (>=2.9.10,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+pytest = "^8.3.5"
+python-dotenv = "^1.0.1"
+
